@@ -1,0 +1,116 @@
+1<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bug WA Panel</title>
+<style>
+    body {
+        background-color: #0a0a0a;
+        color: #0f0;
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        padding: 20px;
+    }
+    h1 {
+        text-shadow: 0 0 10px #0f0;
+    }
+    .menu, .bugMenu {
+        max-width: 400px;
+        margin: auto;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 1.2em;
+        color: #0f0;
+        background: transparent;
+        border: 2px solid #0f0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-shadow: 0 0 5px #0f0;
+    }
+    button:hover {
+        background: #0f0;
+        color: black;
+        box-shadow: 0 0 20px #0f0;
+        transform: scale(1.03);
+    }
+    input, select {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        background: #000;
+        border: 2px solid #0f0;
+        border-radius: 8px;
+        color: #0f0;
+        font-size: 1em;
+        text-align: center;
+    }
+    input:focus, select:focus {
+        outline: none;
+        box-shadow: 0 0 10px #0f0;
+    }
+    .hidden {
+        display: none;
+    }
+    .footer {
+        margin-top: 20px;
+        font-size: 0.8em;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+
+<h1>⚡ Bug WA Control Panel ⚡</h1>
+
+<div id="menuAwal" class="menu">
+    <button onclick="showBugMenu()">BUG WA</button>
+    <button onclick="window.location.href='https://wa.me/6283834677918'">CHAT OWNER</button>
+    <button onclick="window.location.href='https://portfolio-kamu.com'">PORTOFOLIO OWNER</button>
+</div>
+
+<div id="menuBug" class="bugMenu hidden">
+    <h2>Masukkan Nomor Target</h2>
+    <input type="text" id="targetNumber" placeholder="Contoh: 628xxxxxxx">
+    <h3>Pilih Jenis Bug</h3>
+    <select id="bugType">
+        <option value="">-- Pilih Bug --</option>
+        <option value="invisible">Invisible</option>
+        <option value="crash">Crash UI</option>
+        <option value="force">Force Close</option>
+        <option value="ultimate">Ultimate Combo</option>
+    </select>
+    <button onclick="fakeSend()">KIRIM BUG</button>
+    <button onclick="backToMenu()">⬅ Kembali</button>
+</div>
+
+<div class="footer">UI Only • No Sender Connected • by-hab</div>
+
+<script>
+function showBugMenu() {
+    document.getElementById('menuAwal').classList.add('hidden');
+    document.getElementById('menuBug').classList.remove('hidden');
+}
+
+function backToMenu() {
+    document.getElementById('menuBug').classList.add('hidden');
+    document.getElementById('menuAwal').classList.remove('hidden');
+}
+
+function fakeSend() {
+    let number = document.getElementById('targetNumber').value.trim();
+    let bug = document.getElementById('bugType').value;
+    if (!number || !bug) {
+        alert("❌ Isi nomor dan pilih bug!");
+        return;
+    }
+    alert(`✅ Bug '${bug.toUpperCase()}' siap dikirim ke ${number}\n(Mode Demo - No Sender)`);
+}
+</script>
+
+</body>
+</html>
